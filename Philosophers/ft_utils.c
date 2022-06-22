@@ -33,10 +33,9 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{				
-		n = n * 10 + str[i] - 48;
-		i++;
-	}
+		n = n * 10 + str[i++] - 48;
+	if (str[i] != '\0')
+		return (0);
 	return (sign * n);
 }
 
@@ -55,8 +54,7 @@ void	ft_lstadd_back(t_philo **lst, t_philo *new)
 	}
 }
 
-
-t_philo	*ft_lstnew(int	i, t_rules *info)
+t_philo	*ft_lstnew(int i, t_rules *info)
 {
 	t_philo	*ptr;
 
@@ -64,6 +62,7 @@ t_philo	*ft_lstnew(int	i, t_rules *info)
 	if (!ptr)
 		return (NULL);
 	ptr->philo_id = i;
+	ptr->eaten = 0;
 	ptr->last_meal = current_time();
 	pthread_mutex_init(&ptr->fork, NULL);
 	ptr->rules = info;

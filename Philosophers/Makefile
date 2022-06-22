@@ -2,7 +2,7 @@ NAME = philo
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_utils.c args.c  philo.c time.c death.c
+SRC = ft_utils.c args.c  philo.c time.c death.c routine.c
 
 OBJS = $(SRC:.c=.o)
 

@@ -12,16 +12,24 @@
 
 #include "philo.h"
 
-int main(int ac,char **av)
+int	main(int ac, char **av)
 {
 	t_philo	*philo;
 	t_rules	info;
+	int		i;
 
 	philo = NULL;
-	//info = malloc(sizeof(t_rules));
-	if(!check_args(ac,av,&info))
-		return(1);
-	init_philo(&info, philo);
-	//philo->thread = malloc(sizeof(pthread_t *) * info->num_philo);
-	//info->fork = malloc(sizeof(pthread_mutex_t *) *info->num_philo);
+	i = 1;
+	while (av[i])
+	{
+		if (!ft_atoi(av[i]))
+		{
+			write(1, "error\n", 6);
+			return (0);
+		}
+		i++;
+	}
+	if (!check_args (ac, av, &info))
+		return (1);
+	init_philo (&info, philo);
 }
