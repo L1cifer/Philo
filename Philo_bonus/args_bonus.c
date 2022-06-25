@@ -79,21 +79,6 @@ void	init_philo(t_rules *info, t_philo *philo)
 	lst = philo;
 	info->begin_time = current_time();
 	sema_init(philo->rules);
-	while (i < info->num_philo)
-	{
-		lst->pid = fork();
-		if (lst->pid < 0)
-			return ;
-		if (lst->pid == 0)
-		{
-			lst->last_meal = current_time();
-			routine(lst);
-		}
-		else
-		{
-			lst = lst->next;
-			i++;
-		}
-	}
+	init_philo2(lst, lst->rules);
 	kill_this_mf(philo);
 }

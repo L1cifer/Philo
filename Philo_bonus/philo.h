@@ -6,7 +6,7 @@
 /*   By: atakeddi <atakeddi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 16:31:19 by atakeddi          #+#    #+#             */
-/*   Updated: 2022/06/25 11:44:08 by atakeddi         ###   ########.fr       */
+/*   Updated: 2022/06/25 12:03:34 by atakeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void		print_status(t_philo *philo, int n, char *str);
 void		ft_free(t_philo *philo);
 void		kill_this_mf(t_philo *philo);
 void		sema_init(t_rules *all);
+void		init_philo2(t_philo *lst, t_rules *info);
 
 #endif

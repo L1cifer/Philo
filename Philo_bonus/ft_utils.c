@@ -68,3 +68,26 @@ t_philo	*ft_lstnew(int i, t_rules *info)
 	ptr->next = NULL;
 	return (ptr);
 }
+
+void	init_philo2(t_philo *lst, t_rules *info)
+{
+	int	i;
+
+	i = 0;
+	while (i < info->num_philo)
+	{
+		lst->pid = fork();
+		if (lst->pid < 0)
+			return ;
+		if (lst->pid == 0)
+		{
+			lst->last_meal = current_time();
+			routine(lst);
+		}
+		else
+		{
+			lst = lst->next;
+			i++;
+		}
+	}
+}
